@@ -1,0 +1,65 @@
+erDiagram
+
+    User ||--o| Employee : "1:1 (role=Employee)"
+    User ||--o| Employer : "1:1 (role=Employer)"
+    Employer ||--o{ Employee : "1:M"
+    Employee ||--o{ Skill : "1:M"
+    Employer ||--o{ SkillAnalytics : "1:M"
+    Employer ||--o{ TrainingProgram : "1:M"
+    TrainingProgram }o--o{ Employee : "M:N (enrolledEmployees)"
+    Employee ||--o{ PromotionData : "1:M"
+
+    User {
+        Long userId PK
+        String username
+        String password
+        String role
+    }
+
+    Employee {
+        Long employeeId PK
+        String name
+        String position
+        String department
+        Long userId FK
+        Long employerId FK
+    }
+
+    Employer {
+        Long employerId PK
+        String companyName
+        String industry
+        String location
+        Long userId FK
+    }
+
+    Skill {
+        Long skillId PK
+        String skillName
+        String proficiencyLevel
+        Long employeeId FK
+    }
+
+    TrainingProgram {
+        Long trainingId PK
+        String programName
+        String description
+        String duration
+        Long employerId FK
+    }
+
+    SkillAnalytics {
+        Long analyticsId PK
+        LocalDate reportDate
+        String skillDistribution
+        String skillGaps
+        Long employerId FK
+    }
+
+    PromotionData {
+        Long promotionId PK
+        LocalDate promotionDate
+        String newPosition
+        String skillCriteria
+        Long employeeId FK
+    }
