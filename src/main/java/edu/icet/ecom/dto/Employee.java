@@ -17,7 +17,7 @@ public class Employee {
     private String lastName;
     private String position;
     private String department;
-    private Long userId;   // User user
-    private Long companyId;  // Company com
+    private User user;
+    private Company company;
 
 }
