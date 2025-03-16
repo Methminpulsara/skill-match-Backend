@@ -13,7 +13,7 @@ import util.Role;
 public class User {
 
 
-    private Integer id;
+    private Long id;
     private String uesrname;
     private String password;
     private Role role;
