@@ -3,7 +3,6 @@ spring:
     url: jdbc:mysql://localhost:3306/skillMatcher?createDatabaseIfNotExist=true
     username: root
     password : methmin123
-
   jpa:
-     hibernate:
+    hibernate:
      ddl-auto: update
