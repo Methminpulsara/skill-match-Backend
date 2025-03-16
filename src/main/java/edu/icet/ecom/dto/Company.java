@@ -16,7 +16,7 @@ public class Company {
     private String name;
     private String industry;
     private String location;
-    private User user;
+    private Long userId;
 
 
 }
