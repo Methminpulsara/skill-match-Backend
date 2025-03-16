@@ -23,5 +23,5 @@ public class CompanyEntity {
 
     @OneToOne
     @JoinColumn(name = "userId" , referencedColumnName = "userId" , nullable = false)
-    private User user;
+    private UserEntity user;
 }
