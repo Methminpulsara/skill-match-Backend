@@ -9,6 +9,6 @@ public interface TrainingProgramsService {
     void delete(Long id);
     void update(TrainingProgram trainingProgram);
     TrainingProgram search(Long id);
-    TrainingProgram searchByName(String name);
+    List<TrainingProgram> findByName(String name);
     List<TrainingProgram> getAll();
 }

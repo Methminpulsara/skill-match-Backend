@@ -2,7 +2,6 @@ package edu.icet.ecom.controller;
 
 import edu.icet.ecom.dto.Promotion;
 import edu.icet.ecom.dto.SkillAnalytics;
-import edu.icet.ecom.service.PromotionService;
 import edu.icet.ecom.service.SkillAnalyticsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -55,8 +54,5 @@ public class SkillAnalyticsController {
         return service.search(id);
     }
 
-    @GetMapping("/searchName/{name}")
-    public Promotion searchByName(@PathVariable String name){
-        return service.searchByName(name);
-    }
+
 }

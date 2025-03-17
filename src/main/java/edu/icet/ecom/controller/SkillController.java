@@ -57,7 +57,7 @@ public class SkillController {
     }
 
     @GetMapping("/searchName/{name}")
-    public Skill searchByName(@PathVariable String name){
-        return service.searchByName(name);
+    public List<Skill> findByName(@PathVariable String name){
+        return service.findByName(name);
     }
 }

@@ -1,8 +1,6 @@
 package edu.icet.ecom.controller;
 
-import edu.icet.ecom.dto.Skill;
 import edu.icet.ecom.dto.TrainingProgram;
-import edu.icet.ecom.service.SkillService;
 import edu.icet.ecom.service.TrainingProgramsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -55,7 +53,7 @@ public class TrainigProgramsController {
     }
 
     @GetMapping("/searchName/{name}")
-    public TrainingProgram searchByName(@PathVariable String name){
-        return service.searchByName(name);
+    public List<TrainingProgram> findByName(@PathVariable String name){
+        return service.findByName(name);
     }
 }

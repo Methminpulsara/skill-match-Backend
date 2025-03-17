@@ -1,9 +1,14 @@
 package edu.icet.ecom.service.impl;
 
 import edu.icet.ecom.dto.Employee;
+import edu.icet.ecom.entity.EmployeeEntity;
+import edu.icet.ecom.repository.EmployeeDto;
 import edu.icet.ecom.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -11,33 +16,42 @@ import java.util.List;
 
 public class EmployeeServiceImpl implements EmployeeService {
 
+    final EmployeeDto dto;
+    final ModelMapper mapper;
+
     @Override
     public void add(Employee employee) {
-
+        dto.save(mapper.map(employee, EmployeeEntity.class));
     }
 
     @Override
     public void delete(Long id) {
-
+        dto.deleteById(id);
     }
 
     @Override
     public void update(Employee employee) {
-
+        dto.save(mapper.map(employee, EmployeeEntity.class));
     }
 
     @Override
     public Employee search(Long id) {
-        return null;
+        return mapper.map(dto.findById(id),Employee.class);
     }
 
     @Override
     public Employee searchByName(String name) {
-        return null;
+        return mapper.map(dto.findByName(name),Employee.class);
+
     }
 
     @Override
     public List<Employee> getAll() {
-        return List.of();
+        List<Employee> employeeList = new ArrayList<>();
+        List<EmployeeEntity> all = dto.findAll();
+        all.forEach(employeeEntity -> {
+            employeeList.add(mapper.map(employeeEntity,Employee.class));
+        });
+        return employeeList;
     }
 }

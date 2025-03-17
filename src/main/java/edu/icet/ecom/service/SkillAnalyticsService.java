@@ -11,6 +11,4 @@ public interface SkillAnalyticsService {
     void update (SkillAnalytics analytics);
     SkillAnalytics search(Long id);
     List<SkillAnalytics> getAll();
-
-    Promotion searchByName(String name);
 }
