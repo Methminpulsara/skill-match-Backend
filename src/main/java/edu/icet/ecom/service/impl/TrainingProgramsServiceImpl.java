@@ -2,8 +2,12 @@ package edu.icet.ecom.service.impl;
 
 import edu.icet.ecom.dto.TrainingProgram;
 import edu.icet.ecom.service.TrainingProgramsService;
-
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import java.util.List;
+
+@Service
+@RequiredArgsConstructor
 
 public class TrainingProgramsServiceImpl implements TrainingProgramsService {
 

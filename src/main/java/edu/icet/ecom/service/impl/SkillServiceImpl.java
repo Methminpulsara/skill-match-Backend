@@ -2,9 +2,12 @@ package edu.icet.ecom.service.impl;
 
 import edu.icet.ecom.dto.Skill;
 import edu.icet.ecom.service.SkillService;
-
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class SkillServiceImpl implements SkillService {
 
     @Override
@@ -30,5 +33,10 @@ public class SkillServiceImpl implements SkillService {
     @Override
     public List<Skill> getAll() {
         return List.of();
+    }
+
+    @Override
+    public Skill searchByName(String name) {
+        return null;
     }
 }

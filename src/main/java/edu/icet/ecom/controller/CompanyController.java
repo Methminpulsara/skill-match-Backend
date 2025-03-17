@@ -15,49 +15,49 @@ import java.util.*;
 
 public class CompanyController {
 
-    final CompanyService service;
+        final CompanyService service;
 
-    @PostMapping("/add")
-    public ResponseEntity<String> add (@RequestBody Company company){
-        if (company==null){
-            return ResponseEntity.badRequest().body("Company data missing");
+        @PostMapping("/add")
+        public ResponseEntity<String> add (@RequestBody Company company){
+            if (company==null){
+                return ResponseEntity.badRequest().body("Company data missing");
+            }
+            service.add(company);
+            return ResponseEntity.ok( "Added successfully");
         }
-        service.add(company);
-        return ResponseEntity.ok( "Added successfully");
-    }
 
-    @PutMapping("/update")
-    public ResponseEntity<String> update (@RequestBody Company company){
-        if(company==null){
-            return ResponseEntity.badRequest().body("company data missing");
+        @PutMapping("/update")
+        public ResponseEntity<String> update (@RequestBody Company company){
+            if(company==null){
+                return ResponseEntity.badRequest().body("company data missing");
+            }
+            service.update(company);
+            return ResponseEntity.ok("updated successfully");
         }
-        service.update(company);
-        return ResponseEntity.ok("updated successfully");
-    }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> delete (@PathVariable Long id){
-        if (id == null){
-            return ResponseEntity.badRequest().body("not pass id");
+        @DeleteMapping("/delete/{id}")
+        public ResponseEntity<String> delete (@PathVariable Long id){
+            if (id == null){
+                return ResponseEntity.badRequest().body("not pass id");
+            }
+            service.delete(id);
+            return ResponseEntity.ok("Company deleted !");
         }
-        service.delete(id);
-        return ResponseEntity.ok("Company deleted !");
-    }
 
-    @GetMapping("/all")
-    List<Company> getAll(){
-      return service.getAll();
-    }
+        @GetMapping("/all")
+        List<Company> getAll(){
+          return service.getAll();
+        }
 
-    @GetMapping("/search/{id}")
-    public Company search(Long id){
-        return service.search(id);
-    }
+        @GetMapping("/search/{id}")
+        public Company search(@PathVariable Long id){
+            return service.search(id);
+        }
 
-    @GetMapping("/search/{name}")
-    public Company searchByName(String name){
-        return service.searchByName(name);
-    }
+        @GetMapping("/searchName/{name}")
+        public Company searchByName(@PathVariable  String name){
+            return service.searchByName(name);
+        }
 
 
 

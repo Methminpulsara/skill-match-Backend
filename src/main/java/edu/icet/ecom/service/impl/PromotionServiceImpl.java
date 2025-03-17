@@ -2,8 +2,12 @@ package edu.icet.ecom.service.impl;
 
 import edu.icet.ecom.dto.Promotion;
 import edu.icet.ecom.service.PromotionService;
-
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import java.util.List;
+
+@Service
+@RequiredArgsConstructor
 
 public class PromotionServiceImpl implements PromotionService {
     @Override

@@ -10,6 +10,5 @@ public interface SkillService {
     void update(Skill skill);
     Skill search(Long id);
     List <Skill> getAll();
-
-
+    Skill searchByName(String name);
 }

@@ -2,9 +2,13 @@ package edu.icet.ecom.service.impl;
 
 import edu.icet.ecom.dto.Company;
 import edu.icet.ecom.service.CompanyService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class CompanyServiceImpl implements CompanyService {
 
     @Override
