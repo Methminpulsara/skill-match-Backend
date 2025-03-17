@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import util.Role;
+import edu.icet.ecom.util.Role;
 
 @Data
 @NoArgsConstructor
