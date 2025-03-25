@@ -13,8 +13,9 @@ import lombok.ToString;
 public class Employee {
 
     private Long employeeId;
-    private String firstName;
-    private String lastName;
+    private String name;
+    private String phoneNumber;
+    private String location;
     private String position;
     private String department;
     private Long userId;
