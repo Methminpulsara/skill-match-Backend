@@ -15,7 +15,7 @@ public class UserController {
 
     final UserService service;
 
-    @PostMapping("/add")
+    @PostMapping("/api/add")
     public ResponseEntity<String> add (@RequestBody User user){
         if (user==null){
             return ResponseEntity.badRequest().body("user data missing");
