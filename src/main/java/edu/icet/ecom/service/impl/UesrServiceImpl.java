@@ -32,6 +32,6 @@ public class UesrServiceImpl implements UserService {
 
     @Override
     public User search(String userName, String password) {
-        return mapper.map(dto.findByUserNameAndPassword(userName, password), User.class);
+        return null;
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/trainingPrograms")
+@RequestMapping("/trainingPrograms")
 @CrossOrigin
 @RequiredArgsConstructor
 public class TrainigProgramsController {
