@@ -10,7 +10,6 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-
 @Entity
 @Table  (name = "employees")
 public class EmployeeEntity {
@@ -22,6 +21,7 @@ public class EmployeeEntity {
     private String phoneNumber;
     private String location;
     private String position;
+    private String profileImage;
     private String department;
 
     @OneToOne

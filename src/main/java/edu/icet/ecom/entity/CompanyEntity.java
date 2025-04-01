@@ -20,6 +20,9 @@ public class CompanyEntity {
     private String name;
     private String industry;
     private String location;
+    private String size;
+    private String profileImage;
+
 
     @OneToOne
     @JoinColumn(name = "userId" , referencedColumnName = "userId" , nullable = false)

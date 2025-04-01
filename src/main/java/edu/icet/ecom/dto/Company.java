@@ -16,7 +16,7 @@ public class Company {
     private String name;
     private String industry;
     private String location;
+    private String size;
+    private String profileImage;
     private Long userId;
-
-
 }

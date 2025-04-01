@@ -17,6 +17,7 @@ public class Employee {
     private String phoneNumber;
     private String location;
     private String position;
+    private String profileImage;
     private String department;
     private Long userId;
     private Long companyId;
