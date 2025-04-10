@@ -18,5 +18,5 @@ public class Company {
     private String location;
     private String size;
     private String profileImage;
-    private Long userId;
+    private Long userId ;
 }

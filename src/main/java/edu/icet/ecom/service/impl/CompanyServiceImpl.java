@@ -1,8 +1,11 @@
 package edu.icet.ecom.service.impl;
 
 import edu.icet.ecom.dto.Company;
+import edu.icet.ecom.dto.User;
 import edu.icet.ecom.entity.CompanyEntity;
+import edu.icet.ecom.entity.UserEntity;
 import edu.icet.ecom.repository.CompanyDto;
+import edu.icet.ecom.repository.UserDto;
 import edu.icet.ecom.service.CompanyService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -17,11 +20,16 @@ public class CompanyServiceImpl implements CompanyService {
 
     final CompanyDto dto;
     final ModelMapper mapper;
+    final UserDto userDto;
 
     @Override
-    public void add(Company company) {
-        dto.save(mapper.map(company, CompanyEntity.class));
+    public Company add(Company company) {
+        CompanyEntity companyEntity = mapper.map(company, CompanyEntity.class);
+        companyEntity = dto.save(companyEntity);
+        return mapper.map(companyEntity, Company.class);
     }
+
+
 
     @Override
     public void delete(Long companyId) {

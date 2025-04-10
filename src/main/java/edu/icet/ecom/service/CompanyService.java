@@ -5,7 +5,7 @@ import java.util.*;
 
 public interface CompanyService {
 
-    void add (Company company);
+    Company add (Company company);
     void delete(Long companyId);
     Company search(Long companyId);
     Company searchByName(String name);

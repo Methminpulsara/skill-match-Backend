@@ -18,12 +18,9 @@ public class CompanyController {
         final CompanyService service;
 
         @PostMapping("/create")
-        public ResponseEntity<String> add (@RequestBody Company company){
-            if (company==null){
-                return ResponseEntity.badRequest().body("Company data missing");
-            }
-            service.add(company);
-            return ResponseEntity.ok( "Added successfully");
+        public ResponseEntity<Company> add (@RequestBody Company company){
+            company.setCompanyId(null);
+            return ResponseEntity.ok(service.add(company));
         }
 
         @PutMapping("/update")
