@@ -1,8 +1,6 @@
 package edu.icet.ecom.controller;
 
-import edu.icet.ecom.dto.Company;
 import edu.icet.ecom.dto.Employee;
-import edu.icet.ecom.service.CompanyService;
 import edu.icet.ecom.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -11,14 +9,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/api/employee")
 @CrossOrigin
 @RequiredArgsConstructor
 
 public class EmployeeController {
     final EmployeeService service;
 
-    @PostMapping("/add")
+    @PostMapping("/create")
     public ResponseEntity<String> add (@RequestBody Employee employee){
         if (employee==null){
             return ResponseEntity.badRequest().body("employee data missing");
@@ -50,13 +48,18 @@ public class EmployeeController {
         return service.getAll();
     }
 
-    @GetMapping("/search/{id}")
+    @GetMapping("/{id}")
     public Employee search(@PathVariable Long id){
         return service.search(id);
     }
 
-    @GetMapping("/searchName/{name}")
+    @GetMapping("/name/{name}")
     public Employee searchByName(@PathVariable String name){
         return service.searchByName(name);
+    }
+
+    @GetMapping("/user/{userID}")
+    public Employee searchByUserID(@PathVariable Long userID){
+        return service.findByUserID(userID);
     }
 }

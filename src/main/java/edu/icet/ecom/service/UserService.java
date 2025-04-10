@@ -7,7 +7,7 @@ public interface UserService {
     void add (User user);
     void delete(Long id);
     void update(User user);
-    User search(String userName , String password);
+    User search(String email , String password);
 
 
 

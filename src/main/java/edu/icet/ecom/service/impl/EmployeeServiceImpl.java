@@ -54,4 +54,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         });
         return employeeList;
     }
+
+    @Override
+    public Employee findByUserID(Long userID) {
+        return mapper.map(dto.findByUserUserId(userID),Employee.class);
+    }
 }

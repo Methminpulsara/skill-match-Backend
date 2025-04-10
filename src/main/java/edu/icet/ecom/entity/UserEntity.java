@@ -18,9 +18,11 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long UserId;
+    private Long userId;
     private String email;
     private String password;
+
+    @Enumerated(value = EnumType.STRING)
     private Role role;
 
 

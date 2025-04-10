@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
-@RequestMapping("/company")
+@RequestMapping("/api/company")
 @CrossOrigin
 @RequiredArgsConstructor
 
@@ -17,7 +17,7 @@ public class CompanyController {
 
         final CompanyService service;
 
-        @PostMapping("/add")
+        @PostMapping("/create")
         public ResponseEntity<String> add (@RequestBody Company company){
             if (company==null){
                 return ResponseEntity.badRequest().body("Company data missing");
@@ -54,7 +54,7 @@ public class CompanyController {
             return service.search(id);
         }
 
-        @GetMapping("/searchName/{name}")
+        @GetMapping("/name/{name}")
         public Company searchByName(@PathVariable  String name){
             return service.searchByName(name);
         }

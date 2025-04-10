@@ -19,7 +19,7 @@ public class Employee {
     private String position;
     private String profileImage;
     private String department;
-    private Long userId;
-    private Long companyId;
+    private Long userid;
+    private Long companyid;
 
 }

@@ -11,4 +11,6 @@ public interface EmployeeService {
     Employee search(Long id);
     Employee searchByName(String name);
     List<Employee> getAll();
+    Employee findByUserID(Long userID);
+
 }
