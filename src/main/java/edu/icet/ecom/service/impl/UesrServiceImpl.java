@@ -16,8 +16,10 @@ public class UesrServiceImpl implements UserService {
     final ModelMapper mapper;
 
     @Override
-    public void add(User user) {
-        dto.save(mapper.map(user, UserEntity.class));
+    public User add(User user) {
+        UserEntity userEntity = mapper.map(user, UserEntity.class);
+        userEntity = dto.save(userEntity);
+        return mapper.map(userEntity, User.class);
     }
 
     @Override

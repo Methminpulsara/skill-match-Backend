@@ -15,14 +15,11 @@ public class UserController {
 
     final UserService service;
 
-    @PostMapping("/add")
-    public ResponseEntity<String> add (@RequestBody User user){
-        if (user==null){
-            return ResponseEntity.badRequest().body("user data missing");
-        }
-        service.add(user);
-        return ResponseEntity.ok( "Added successfully");
+    @PostMapping("/register")
+    public ResponseEntity<User> registerUser(@RequestBody User user) {
+        return ResponseEntity.ok( service.add(user));
     }
+
 
     @PutMapping("/update")
     public ResponseEntity<String> update (@RequestBody User user){
