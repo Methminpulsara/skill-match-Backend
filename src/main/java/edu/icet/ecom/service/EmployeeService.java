@@ -5,7 +5,7 @@ import java.util.*;
 
 public interface EmployeeService {
 
-    void add (Employee employee);
+    Employee add (Employee employee);
     void delete(Long id);
     void update(Employee employee);
     Employee search(Long id);

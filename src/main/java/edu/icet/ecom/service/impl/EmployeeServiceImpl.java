@@ -20,8 +20,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     final ModelMapper mapper;
 
     @Override
-    public void add(Employee employee) {
-        dto.save(mapper.map(employee, EmployeeEntity.class));
+    public Employee add(Employee employee) {
+       EmployeeEntity employeeEntity= mapper.map(employee,EmployeeEntity.class);
+       employeeEntity=dto.save(employeeEntity);
+       return mapper.map(employeeEntity,Employee.class);
     }
 
     @Override

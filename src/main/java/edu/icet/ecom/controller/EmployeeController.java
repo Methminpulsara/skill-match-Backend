@@ -17,12 +17,8 @@ public class EmployeeController {
     final EmployeeService service;
 
     @PostMapping("/create")
-    public ResponseEntity<String> add (@RequestBody Employee employee){
-        if (employee==null){
-            return ResponseEntity.badRequest().body("employee data missing");
-        }
-        service.add(employee);
-        return ResponseEntity.ok( "Added successfully");
+    public ResponseEntity<Employee> add (@RequestBody Employee employee){
+        return ResponseEntity.ok(service.add(employee));
     }
 
     @PutMapping("/update")
