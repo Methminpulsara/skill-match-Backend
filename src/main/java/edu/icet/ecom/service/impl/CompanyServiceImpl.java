@@ -20,8 +20,6 @@ public class CompanyServiceImpl implements CompanyService {
 
     final CompanyDto dto;
     final ModelMapper mapper;
-    final UserDto userDto;
-
     @Override
     public Company add(Company company) {
         CompanyEntity companyEntity = mapper.map(company, CompanyEntity.class);

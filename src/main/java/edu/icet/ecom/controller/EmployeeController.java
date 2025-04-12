@@ -18,6 +18,7 @@ public class EmployeeController {
 
     @PostMapping("/create")
     public ResponseEntity<Employee> add (@RequestBody Employee employee){
+        employee.setEmployeeId(null);
         return ResponseEntity.ok(service.add(employee));
     }
 
