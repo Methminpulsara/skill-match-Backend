@@ -30,25 +30,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee add(Employee employee) {
         // Map base fields
         EmployeeEntity employeeEntity = mapper.map(employee, EmployeeEntity.class);
-
-        // Manually resolve UserEntity from userId
-        if (employee.getUserid() == null) {
-            throw new IllegalArgumentException("User ID must not be null");
-        }
-        UserEntity user = userDto.findById(employee.getUserid())
-                .orElseThrow(() -> new RuntimeException("User not found"));
-        employeeEntity.setUser(user);
-
-        // Optionally set company
-        if (employee.getCompanyid() != null) {
-            CompanyEntity company = companyDto.findById(employee.getCompanyid())
-                    .orElseThrow(() -> new RuntimeException("Company not found"));
-            employeeEntity.setCompany(company);
-        }
-
-        // Save
         employeeEntity = dto.save(employeeEntity);
-
         return mapper.map(employeeEntity, Employee.class);
     }
 

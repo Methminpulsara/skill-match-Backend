@@ -21,6 +21,7 @@ public class CompanyEntity {
     private String industry;
     private String location;
     private String size;
+    private String status;
     private String profileImage;
 
 

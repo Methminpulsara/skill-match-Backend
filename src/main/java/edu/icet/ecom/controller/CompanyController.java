@@ -41,9 +41,9 @@ public class CompanyController {
             return ResponseEntity.ok("Company deleted !");
         }
 
-        @GetMapping("/all")
-        List<Company> getAll(){
-          return service.getAll();
+        @GetMapping("/active")
+        List<Company> getAllActiveCompanies(){
+          return service.getAllActiveCompanies();
         }
 
         @GetMapping("/search/{id}")

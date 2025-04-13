@@ -50,9 +50,9 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public List<Company> getAll() {
+    public List<Company> getAllActiveCompanies() {
         List<Company> companyList = new ArrayList<>();
-        List<CompanyEntity> all = dto.findAll();
+        List<CompanyEntity> all = dto.findAllActiveCompanies();
         all.forEach(companyEntity -> {
             companyList.add(mapper.map(companyEntity,Company.class));
         });

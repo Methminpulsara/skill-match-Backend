@@ -10,6 +10,6 @@ public interface CompanyService {
     Company search(Long companyId);
     Company searchByName(String name);
     void update (Company company);
-    List<Company> getAll();
+    List<Company> getAllActiveCompanies();
 
 }
