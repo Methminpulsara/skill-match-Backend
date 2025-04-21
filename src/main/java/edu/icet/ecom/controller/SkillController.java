@@ -1,6 +1,5 @@
 package edu.icet.ecom.controller;
 
-import edu.icet.ecom.dto.Employee;
 import edu.icet.ecom.dto.Skill;
 import edu.icet.ecom.service.SkillService;
 import lombok.RequiredArgsConstructor;
