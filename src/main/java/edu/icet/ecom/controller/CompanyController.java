@@ -55,7 +55,10 @@ public class CompanyController {
         public Company searchByName(@PathVariable  String name){
             return service.searchByName(name);
         }
-
+        @GetMapping("/user/{userId}")
+        public Company findUserByUserID(@PathVariable Long userId){
+            return service.findUserByUserID(userId);
+        }
 
 
 

@@ -12,4 +12,5 @@ public interface CompanyService {
     void update (Company company);
     List<Company> getAllActiveCompanies();
 
+    Company findUserByUserID(Long userId);
 }

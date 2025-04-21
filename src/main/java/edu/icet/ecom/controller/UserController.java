@@ -3,6 +3,7 @@ package edu.icet.ecom.controller;
 import edu.icet.ecom.dto.User;
 import edu.icet.ecom.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,10 +42,11 @@ public class UserController {
     }
 
 
-    //GET /users/search?userName=john&password=12345
-    @GetMapping("/search")
-    public User search(@RequestParam String email, @RequestParam String password){
-        return service.search(email,password);
+    @PostMapping("/loginrequest")
+    public ResponseEntity<User> search(@RequestBody User request){
+        User user = service.search(request.getEmail(),request.getPassword());
+        return ResponseEntity.ok(user);
+
     }
 
 

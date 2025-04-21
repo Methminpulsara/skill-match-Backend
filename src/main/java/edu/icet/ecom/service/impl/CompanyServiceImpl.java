@@ -1,11 +1,8 @@
 package edu.icet.ecom.service.impl;
 
 import edu.icet.ecom.dto.Company;
-import edu.icet.ecom.dto.User;
 import edu.icet.ecom.entity.CompanyEntity;
-import edu.icet.ecom.entity.UserEntity;
 import edu.icet.ecom.repository.CompanyDto;
-import edu.icet.ecom.repository.UserDto;
 import edu.icet.ecom.service.CompanyService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -57,5 +54,10 @@ public class CompanyServiceImpl implements CompanyService {
             companyList.add(mapper.map(companyEntity,Company.class));
         });
         return companyList;
+    }
+
+    @Override
+    public Company findUserByUserID(Long userId) {
+        return mapper.map(dto.findByUserUserId(userId),Company.class);
     }
 }
