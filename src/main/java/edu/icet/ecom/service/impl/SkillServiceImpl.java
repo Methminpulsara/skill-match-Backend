@@ -61,5 +61,16 @@ public class SkillServiceImpl implements SkillService {
         return skillList;
     }
 
+    @Override
+    public List<Skill> findAllBYEmployeeID(Long employeeId) {
+
+        List<Skill> skillList = new ArrayList<>();
+        List<SkillEntity> allByEmployeeEmployeeId = dto.findAllByEmployeeEmployeeId(employeeId);
+        allByEmployeeEmployeeId.forEach(employee->{
+            skillList.add(mapper.map(employee,Skill.class));
+        });
+        return skillList;
+    }
+
 
 }

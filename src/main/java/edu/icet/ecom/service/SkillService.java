@@ -11,4 +11,6 @@ public interface SkillService {
     Skill search(Long id);
     List <Skill> getAll();
     List<Skill> findByName(String name);
+
+    List<Skill> findAllBYEmployeeID(Long employeeId);
 }

@@ -60,4 +60,9 @@ public class SkillController {
     public List<Skill> findByName(@PathVariable String name){
         return service.findByName(name);
     }
+
+    @GetMapping("/searchEmployee/{employeeId}")
+    public List<Skill> findAllBYEmployeeID(@PathVariable Long employeeId){
+        return service.findAllBYEmployeeID(employeeId);
+    }
 }
