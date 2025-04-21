@@ -10,10 +10,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class Skill {
-
     private Long skillId;
     private String name;
     private String proficiencyLevel;
     private Long employeeId;
-
 }
