@@ -8,5 +8,5 @@ import java.util.*;
 public interface SkillDto extends JpaRepository<SkillEntity , Long> {
 
     List<SkillEntity> findAllByName(String name);
-    List<SkillEntity> findAllByEmployeeEmployeeId(Long employeeId);
+    List<SkillEntity> findAllByEmployeeEmployeeIdAndStatus(Long employeeId,String status);
 }

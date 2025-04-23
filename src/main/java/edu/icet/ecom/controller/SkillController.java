@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/skill")
+@RequestMapping("api/skill")
 @CrossOrigin
 @RequiredArgsConstructor
 
@@ -18,13 +18,10 @@ public class SkillController {
     final SkillService service;
 
 
-    @PostMapping("/add")
-    public ResponseEntity<String> add (@RequestBody Skill skill){
-        if (skill==null){
-            return ResponseEntity.badRequest().body("skill data missing");
-        }
-        service.add(skill);
-        return ResponseEntity.ok( "Added successfully");
+    @PostMapping("/create")
+    public Skill add (@RequestBody Skill skill){
+        skill.setSkillId(null);
+        return service.add(skill);
     }
 
     @PutMapping("/update")
@@ -60,8 +57,8 @@ public class SkillController {
         return service.findByName(name);
     }
 
-    @GetMapping("/searchEmployee/{employeeId}")
-    public List<Skill> findAllBYEmployeeID(@PathVariable Long employeeId){
-        return service.findAllBYEmployeeID(employeeId);
+    @GetMapping("/active/{employeeId}")
+    public List<Skill> findSkills(@PathVariable Long employeeId ){
+        return service.findAllBYEmployeeIDAndStatus(employeeId,"active");
     }
 }

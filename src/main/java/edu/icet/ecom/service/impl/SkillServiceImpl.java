@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -20,8 +19,10 @@ public class SkillServiceImpl implements SkillService {
     final ModelMapper mapper;
 
     @Override
-    public void add(Skill skill) {
-        dto.save(mapper.map(skill, SkillEntity.class));
+    public Skill add(Skill skill) {
+        SkillEntity skillEntity = mapper.map(skill,SkillEntity.class);
+        skillEntity = dto.save(skillEntity);
+        return mapper.map(skillEntity,Skill.class);
     }
 
     @Override
@@ -62,10 +63,10 @@ public class SkillServiceImpl implements SkillService {
     }
 
     @Override
-    public List<Skill> findAllBYEmployeeID(Long employeeId) {
+    public List<Skill> findAllBYEmployeeIDAndStatus(Long employeeId, String status) {
 
         List<Skill> skillList = new ArrayList<>();
-        List<SkillEntity> allByEmployeeEmployeeId = dto.findAllByEmployeeEmployeeId(employeeId);
+        List<SkillEntity> allByEmployeeEmployeeId = dto.findAllByEmployeeEmployeeIdAndStatus(employeeId, status);
         allByEmployeeEmployeeId.forEach(employee->{
             skillList.add(mapper.map(employee,Skill.class));
         });

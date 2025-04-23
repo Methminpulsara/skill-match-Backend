@@ -28,7 +28,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee add(Employee employee) {
-        // Map base fields
+
         EmployeeEntity employeeEntity = mapper.map(employee, EmployeeEntity.class);
         employeeEntity = dto.save(employeeEntity);
         return mapper.map(employeeEntity, Employee.class);

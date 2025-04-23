@@ -13,5 +13,8 @@ public class Skill {
     private Long skillId;
     private String name;
     private String proficiencyLevel;
+    private String description;
+    private String status;
+    private String time;
     private Long employeeId;
 }

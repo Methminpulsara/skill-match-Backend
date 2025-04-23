@@ -20,7 +20,9 @@ public class SkillEntity {
     private String name;
 
     private String proficiencyLevel;
-
+    private String description;
+    private String status;
+    private String time;
     @ManyToOne
     @JoinColumn(name = "employeeId" , referencedColumnName = "employeeId" , nullable = false)
     private EmployeeEntity employee;
