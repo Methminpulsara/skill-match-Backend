@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import java.util.*;
 
 import java.util.Set;
 
@@ -18,6 +19,10 @@ public class TrainingProgram {
     private String name;
     private String description;
     private Long companyId;
+    private String startDate;
+    private String endDate;
+    private String status;
+    private List<String> badges;
     private Set <Long> enrolledEmployeeId;
 
 }

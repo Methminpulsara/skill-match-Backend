@@ -6,4 +6,6 @@ import java.util.*;
 
 public interface TrainingProgramsDto extends JpaRepository<TrainingProgramEntity, Long> {
     List<TrainingProgramEntity> findAllByName(String name);
+
+    List<TrainingProgramEntity> findAllByCompanyCompanyIdAndStatus(Long companyId , String status);
 }

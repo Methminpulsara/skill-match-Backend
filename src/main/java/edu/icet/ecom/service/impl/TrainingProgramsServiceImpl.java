@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ListIterator;
 
 @Service
 @RequiredArgsConstructor
@@ -21,9 +20,10 @@ public class TrainingProgramsServiceImpl implements TrainingProgramsService {
     final ModelMapper mapper;
 
     @Override
-    public void add(TrainingProgram trainingProgram) {
-        dto.save(mapper.map(trainingProgram, TrainingProgramEntity.class));
-
+    public TrainingProgram add(TrainingProgram trainingProgram) {
+      TrainingProgramEntity entity = mapper.map(trainingProgram, TrainingProgramEntity.class);
+      entity = dto.save(entity);
+      return mapper.map(entity,TrainingProgram.class);
     }
 
     @Override
@@ -53,9 +53,9 @@ public class TrainingProgramsServiceImpl implements TrainingProgramsService {
     }
 
     @Override
-    public List<TrainingProgram> getAll() {
+    public List<TrainingProgram> getAll(Long companyId, String status) {
         List<TrainingProgram> programList = new ArrayList<>();
-        List<TrainingProgramEntity> all = dto.findAll();
+        List<TrainingProgramEntity> all = dto.findAllByCompanyCompanyIdAndStatus(companyId , status);
         all.forEach(trainingProgramEntity -> {
             programList.add(mapper.map(trainingProgramEntity, TrainingProgram.class));
         });

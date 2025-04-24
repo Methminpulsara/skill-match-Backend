@@ -1,12 +1,12 @@
 package edu.icet.ecom.entity;
 
-import edu.icet.ecom.dto.Employee;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -27,6 +27,11 @@ public class TrainingProgramEntity {
     @ManyToOne
     @JoinColumn(name = "companyId" ,referencedColumnName = "companyId" ,nullable = false)
     private CompanyEntity company;
+
+    private String startDate;
+    private String endDate;
+    private String status;
+    private List<String> badges;
 
     @ManyToMany
     @JoinTable(
