@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-    @RequestMapping("/api/trainingPrograms")
+@RequestMapping("/api/trainingPrograms")
 @CrossOrigin
 @RequiredArgsConstructor
 public class TrainigProgramsController {
 
-    final TrainingProgramsService service;
+     final TrainingProgramsService service;
 
     @PostMapping("/create")
     public TrainingProgram add (@RequestBody TrainingProgram program){
@@ -39,9 +39,9 @@ public class TrainigProgramsController {
         return ResponseEntity.ok("Skill deleted !");
     }
 
-    @GetMapping("/active/programs/{companyId}")
+    @GetMapping("/programs/{companyId}")
     public List<TrainingProgram> getAllCompanyPrograms(@PathVariable Long companyId){
-        return service.getAll(companyId, "active");
+        return service.getAll(companyId,"active");
     }
 
     @GetMapping("/search/{id}")
@@ -53,4 +53,8 @@ public class TrainigProgramsController {
     public List<TrainingProgram> findByName(@PathVariable String name){
         return service.findByName(name);
     }
+
+
+
+
 }

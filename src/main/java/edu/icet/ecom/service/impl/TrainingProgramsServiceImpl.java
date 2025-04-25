@@ -1,7 +1,9 @@
 package edu.icet.ecom.service.impl;
 
 import edu.icet.ecom.dto.TrainingProgram;
+import edu.icet.ecom.entity.EmployeeEntity;
 import edu.icet.ecom.entity.TrainingProgramEntity;
+import edu.icet.ecom.repository.EmployeeDto;
 import edu.icet.ecom.repository.TrainingProgramsDto;
 import edu.icet.ecom.service.TrainingProgramsService;
 import lombok.RequiredArgsConstructor;
@@ -9,6 +11,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 @Service
@@ -17,6 +20,7 @@ import java.util.List;
 public class TrainingProgramsServiceImpl implements TrainingProgramsService {
 
     final TrainingProgramsDto dto;
+    final EmployeeDto  employeeDto;
     final ModelMapper mapper;
 
     @Override
@@ -61,4 +65,10 @@ public class TrainingProgramsServiceImpl implements TrainingProgramsService {
         });
         return programList;
     }
+
+
+
+
+
+
 }
