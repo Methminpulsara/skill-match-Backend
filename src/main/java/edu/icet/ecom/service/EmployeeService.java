@@ -10,7 +10,8 @@ public interface EmployeeService {
     void update(Employee employee);
     Employee search(Long id);
     Employee searchByName(String name);
-    List<Employee> getAll();
+    List<Employee> getAll(Long companyId);
     Employee findByUserID(Long userID);
 
+    boolean updateProfileImage(Long employeeId, String profileImage);
 }

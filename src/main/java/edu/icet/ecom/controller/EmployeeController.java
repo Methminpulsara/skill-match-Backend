@@ -3,6 +3,7 @@ package edu.icet.ecom.controller;
 import edu.icet.ecom.dto.Employee;
 import edu.icet.ecom.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,9 +41,9 @@ public class EmployeeController {
         return ResponseEntity.ok("employee deleted !");
     }
 
-    @GetMapping("/all")
-    List<Employee> getAll(){
-        return service.getAll();
+    @GetMapping("/all/{companyId}")
+    List<Employee> getAll(@PathVariable Long companyId){
+        return service.getAll( companyId);
     }
 
     @GetMapping("/{id}")
@@ -59,4 +60,23 @@ public class EmployeeController {
     public Employee searchByUserID(@PathVariable Long userID){
         return service.findByUserID(userID);
     }
+
+
+      @PutMapping("/{employeeId}")
+    public ResponseEntity<String> updateProfileImage(
+            @PathVariable Long employeeId,
+            @RequestBody String profileImage) {
+
+        boolean updated = service.updateProfileImage(employeeId, profileImage);
+
+        if (updated) {
+            return ResponseEntity.ok("Profile image updated successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Employee not found");
+        }
+    }
+
+
+
+
 }

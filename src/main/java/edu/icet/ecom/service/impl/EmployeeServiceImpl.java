@@ -1,9 +1,7 @@
 package edu.icet.ecom.service.impl;
 
 import edu.icet.ecom.dto.Employee;
-import edu.icet.ecom.entity.CompanyEntity;
 import edu.icet.ecom.entity.EmployeeEntity;
-import edu.icet.ecom.entity.UserEntity;
 import edu.icet.ecom.repository.CompanyDto;
 import edu.icet.ecom.repository.EmployeeDto;
 import edu.icet.ecom.repository.UserDto;
@@ -14,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -57,9 +56,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<Employee> getAll() {
+    public List<Employee> getAll(Long companyId) {
         List<Employee> employeeList = new ArrayList<>();
-        List<EmployeeEntity> all = dto.findAll();
+        List<EmployeeEntity> all = dto.findAllByCompanyCompanyId(companyId);
         all.forEach(employeeEntity -> {
             employeeList.add(mapper.map(employeeEntity,Employee.class));
         });
@@ -70,4 +69,23 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee findByUserID(Long userID) {
         return mapper.map(dto.findByUserUserId(userID),Employee.class);
     }
+
+
+
+
+        public boolean updateProfileImage(Long employeeId, String profileImage) {
+            Optional<EmployeeEntity> employeeEntityOptional = dto.findById(employeeId);
+
+            if (employeeEntityOptional.isPresent()) {
+                EmployeeEntity employeeEntity = employeeEntityOptional.get();
+                employeeEntity.setProfileImage(profileImage);
+                dto.save(employeeEntity);
+                return true;
+            }
+            return false;
+
+    }
+
+
+
 }
