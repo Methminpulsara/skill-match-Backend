@@ -33,14 +33,6 @@ public class TrainingProgramEntity {
     private String status;
     private List<String> badges;
 
-    @ManyToMany
-    @JoinTable(
-            name = "training_enrollments",
-            joinColumns = @JoinColumn(name = "trainingId"),
-            inverseJoinColumns = @JoinColumn(name = "employeeId")
-    )
-    private Set<EmployeeEntity> enrolledEmployeeId;
-
 
 
 }

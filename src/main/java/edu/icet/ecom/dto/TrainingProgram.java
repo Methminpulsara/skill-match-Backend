@@ -23,6 +23,5 @@ public class TrainingProgram {
     private String endDate;
     private String status;
     private List<String> badges;
-    private Set <Long> enrolledEmployeeId;
 
 }
