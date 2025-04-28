@@ -1,6 +1,8 @@
 package edu.icet.ecom.service.impl;
 
+import edu.icet.ecom.dto.Company;
 import edu.icet.ecom.dto.Employee;
+import edu.icet.ecom.entity.CompanyEntity;
 import edu.icet.ecom.entity.EmployeeEntity;
 import edu.icet.ecom.repository.CompanyDto;
 import edu.icet.ecom.repository.EmployeeDto;
@@ -12,7 +14,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -84,6 +85,31 @@ public class EmployeeServiceImpl implements EmployeeService {
         EmployeeEntity updatedEmployee = dto.findById(employeeId)
                 .orElseThrow(() -> new RuntimeException("Employee not found after update"));
 
+        return mapper.map(updatedEmployee, Employee.class);
+    }
+
+    @Override
+    public Employee updateEmployeeDetails(Long employeeId, Employee employee) {
+
+        // Find the company by its ID
+        EmployeeEntity employeeEntity = dto.findById(employeeId)
+                .orElseThrow(() -> new RuntimeException("Company not found"));
+
+        // Update the company details using the passed Company object
+        employeeEntity.setName(employee.getName());
+        employeeEntity.setDepartment(employee.getDepartment());
+        employeeEntity.setLocation(employee.getLocation());
+        employeeEntity.setPosition(employee.getPosition());
+        employeeEntity.setPhoneNumber(employee.getPhoneNumber());
+
+        // Save the updated company entity
+        dto.save(employeeEntity);
+
+        // Fetch the updated company from the database
+        EmployeeEntity updatedEmployee = dto.findById(employeeId)
+                .orElseThrow(() -> new RuntimeException("Company not found after update"));
+
+        // Map the updated CompanyEntity to the Company model
         return mapper.map(updatedEmployee, Employee.class);
     }
 

@@ -12,6 +12,7 @@ public interface EmployeeService {
     Employee searchByName(String name);
     List<Employee> getAll(Long companyId);
     Employee findByUserID(Long userID);
-
     Employee updateProfileImage(Long employeeId, String profileImage);
+
+    Employee updateEmployeeDetails(Long employeeId, Employee employee);
 }

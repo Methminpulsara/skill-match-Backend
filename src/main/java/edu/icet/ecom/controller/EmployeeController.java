@@ -3,7 +3,6 @@ package edu.icet.ecom.controller;
 import edu.icet.ecom.dto.Employee;
 import edu.icet.ecom.service.EmployeeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -68,6 +67,11 @@ public class EmployeeController {
             @RequestBody  String profileImage) {
 
     return service.updateProfileImage(employeeId,profileImage);
+    }
+
+    @PutMapping("/update/{employeeId}")
+    public Employee updateEmployeeDetails(@PathVariable Long companyId, @RequestBody Employee employee) {
+        return service.updateEmployeeDetails(companyId, employee);
     }
 
 

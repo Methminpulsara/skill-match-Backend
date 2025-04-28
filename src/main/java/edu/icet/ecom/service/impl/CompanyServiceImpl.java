@@ -86,7 +86,6 @@ public class CompanyServiceImpl implements CompanyService {
 
         // Update the company details using the passed Company object
         companyEntity.setName(company.getName());
-        companyEntity.setIndustry(company.getIndustry());
         companyEntity.setSize(company.getSize());
         companyEntity.setContact(company.getContact());
         companyEntity.setAbout(company.getAbout());
