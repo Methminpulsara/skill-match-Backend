@@ -72,19 +72,21 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 
 
+    @Override
+    public Employee updateProfileImage(Long employeeId, String profileImage) {
 
-        public boolean updateProfileImage(Long employeeId, String profileImage) {
-            Optional<EmployeeEntity> employeeEntityOptional = dto.findById(employeeId);
+        EmployeeEntity employee = dto.findById(employeeId)
+                .orElseThrow(() -> new RuntimeException("Employee not found"));
 
-            if (employeeEntityOptional.isPresent()) {
-                EmployeeEntity employeeEntity = employeeEntityOptional.get();
-                employeeEntity.setProfileImage(profileImage);
-                dto.save(employeeEntity);
-                return true;
-            }
-            return false;
+        employee.setProfileImage(profileImage);
+        dto.save(employee);
 
+        EmployeeEntity updatedEmployee = dto.findById(employeeId)
+                .orElseThrow(() -> new RuntimeException("Employee not found after update"));
+
+        return mapper.map(updatedEmployee, Employee.class);
     }
+
 
 
 

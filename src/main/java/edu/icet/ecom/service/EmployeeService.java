@@ -13,5 +13,5 @@ public interface EmployeeService {
     List<Employee> getAll(Long companyId);
     Employee findByUserID(Long userID);
 
-    boolean updateProfileImage(Long employeeId, String profileImage);
+    Employee updateProfileImage(Long employeeId, String profileImage);
 }

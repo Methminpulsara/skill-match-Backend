@@ -62,18 +62,12 @@ public class EmployeeController {
     }
 
 
-      @PutMapping("/{employeeId}")
-    public ResponseEntity<String> updateProfileImage(
+    @PutMapping("/{employeeId}/profile-image")
+    public Employee updateProfileImage(
             @PathVariable Long employeeId,
-            @RequestBody String profileImage) {
+            @RequestBody  String profileImage) {
 
-        boolean updated = service.updateProfileImage(employeeId, profileImage);
-
-        if (updated) {
-            return ResponseEntity.ok("Profile image updated successfully");
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Employee not found");
-        }
+    return service.updateProfileImage(employeeId,profileImage);
     }
 
 
