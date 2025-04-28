@@ -70,8 +70,8 @@ public class EmployeeController {
     }
 
     @PutMapping("/update/{employeeId}")
-    public Employee updateEmployeeDetails(@PathVariable Long companyId, @RequestBody Employee employee) {
-        return service.updateEmployeeDetails(companyId, employee);
+    public Employee updateEmployeeDetails(@PathVariable Long employeeId, @RequestBody Employee employee) {
+        return service.updateEmployeeDetails(employeeId, employee);
     }
 
 
