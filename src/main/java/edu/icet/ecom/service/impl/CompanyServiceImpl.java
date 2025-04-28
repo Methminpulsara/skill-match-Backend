@@ -1,6 +1,7 @@
 package edu.icet.ecom.service.impl;
 
 import edu.icet.ecom.dto.Company;
+import edu.icet.ecom.dto.Employee;
 import edu.icet.ecom.entity.CompanyEntity;
 import edu.icet.ecom.repository.CompanyDto;
 import edu.icet.ecom.service.CompanyService;
@@ -60,4 +61,46 @@ public class CompanyServiceImpl implements CompanyService {
     public Company findUserByUserID(Long userId) {
         return mapper.map(dto.findByUserUserId(userId),Company.class);
     }
+
+    @Override
+    public Company updateProfileImage(Long employeeId, String profileImage) {
+
+        CompanyEntity company = dto.findById(employeeId)
+                .orElseThrow(() -> new RuntimeException("Company not found"));
+
+        company.setProfileImage(profileImage);
+        dto.save(company);
+
+        CompanyEntity updatedCompany = dto.findById(employeeId)
+                .orElseThrow(() -> new RuntimeException("Employee not found after update"));
+
+        return mapper.map(updatedCompany, Company.class);
+    }
+
+    @Override
+    public Company updateCompanyDetails(Long companyId, Company company) {
+
+        // Find the company by its ID
+        CompanyEntity companyEntity = dto.findById(companyId)
+                .orElseThrow(() -> new RuntimeException("Company not found"));
+
+        // Update the company details using the passed Company object
+        companyEntity.setName(company.getName());
+        companyEntity.setIndustry(company.getIndustry());
+        companyEntity.setSize(company.getSize());
+        companyEntity.setContact(company.getContact());
+        companyEntity.setAbout(company.getAbout());
+        companyEntity.setLocation(company.getLocation());
+
+        // Save the updated company entity
+        dto.save(companyEntity);
+
+        // Fetch the updated company from the database
+        CompanyEntity updatedCompanyEntity = dto.findById(companyId)
+                .orElseThrow(() -> new RuntimeException("Company not found after update"));
+
+        // Map the updated CompanyEntity to the Company model
+        return mapper.map(updatedCompanyEntity, Company.class);
+    }
+
 }

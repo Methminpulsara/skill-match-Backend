@@ -19,5 +19,7 @@ public class Company {
     private String size;
     private String status;
     private String profileImage;
+    private String contact;
+    private String about;
     private Long userId ;
 }

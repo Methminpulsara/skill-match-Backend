@@ -61,6 +61,18 @@ public class CompanyController {
             return service.findUserByUserID(userId);
         }
 
+        @PutMapping("/{companyId}/profile-image")
+        public Company updateProfileImage(
+                @PathVariable Long companyId,
+                @RequestBody  String profileImage) {
+
+            return service.updateProfileImage(companyId,profileImage);
+        }
+
+    @PutMapping("/update/{companyId}")
+    public Company updateCompanyDetails(@PathVariable Long companyId, @RequestBody Company company) {
+        return service.updateCompanyDetails(companyId, company);
+    }
 
 
 }

@@ -23,6 +23,8 @@ public class CompanyEntity {
     private String size;
     private String status;
     private String profileImage;
+    private String contact;
+    private String about;
 
 
     @OneToOne
