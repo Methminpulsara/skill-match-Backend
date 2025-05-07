@@ -38,6 +38,13 @@ public class EnrolledMeantController {
     }
 
 
+    @GetMapping("/count/{trainingId}")
+    public ResponseEntity<Long> getEnrollmentCount(@PathVariable Long trainingId) {
+        long count = service.getEmployeeCountForTraining(trainingId);
+        return ResponseEntity.ok(count);
+    }
+
+
 
 
 

@@ -14,10 +14,10 @@ import lombok.*;
 @Table(name = "trainingEnrollment")
 public class EnrollmentsForTrainingEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long enrollmentId;
+            @Id
+            @GeneratedValue(strategy = GenerationType.IDENTITY)
+            private Long enrollmentId;
 
-    private Long trainingId;
-    private Long employeeId;
+            private Long trainingId;
+            private Long employeeId;
 }

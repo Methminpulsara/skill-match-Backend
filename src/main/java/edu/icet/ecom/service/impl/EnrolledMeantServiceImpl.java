@@ -53,4 +53,10 @@ public class EnrolledMeantServiceImpl implements EnrolledMeantService {
         return enrollments;
     }
 
+    @Override
+    public long getEmployeeCountForTraining(Long trainingId) {
+        return enrolledMeantDto.countByTrainingId(trainingId);
+    }
+
+
 }

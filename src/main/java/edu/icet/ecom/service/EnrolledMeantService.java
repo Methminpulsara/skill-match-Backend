@@ -11,4 +11,6 @@ public interface EnrolledMeantService {
      List<EnrollmentsForTraining> findByEmployeeId(Long employeeId);
 
     List<EnrollmentsForTraining> getAllByTrainingId(Long trainingId);
+
+    long getEmployeeCountForTraining(Long trainingId);
 }
