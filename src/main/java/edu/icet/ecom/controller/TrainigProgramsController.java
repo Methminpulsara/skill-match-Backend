@@ -18,16 +18,8 @@ public class TrainigProgramsController {
     @PostMapping("/create")
     public TrainingProgram add (@RequestBody TrainingProgram program){
         program.setTrainingId(null);
+        program.setStatus("active");
         return service.add(program);
-    }
-
-    @PutMapping("/update")
-    public ResponseEntity<String> update (@RequestBody TrainingProgram program){
-        if(program==null){
-            return ResponseEntity.badRequest().body("program data missing");
-        }
-        service.update(program);
-        return ResponseEntity.ok("updated successfully");
     }
 
     @DeleteMapping("/delete/{id}")
@@ -53,6 +45,17 @@ public class TrainigProgramsController {
     public List<TrainingProgram> findByName(@PathVariable String name){
         return service.findByName(name);
     }
+
+    @PutMapping("/updateStatus/{id}")
+    public ResponseEntity<String> updateStatus(@PathVariable Long id){
+       return service.updateStatus(id);
+    }
+
+    @PutMapping("/update/{id}")
+    public TrainingProgram update (@PathVariable Long id , @RequestBody TrainingProgram program){
+        return service.update(id ,program);
+    }
+
 
 
 

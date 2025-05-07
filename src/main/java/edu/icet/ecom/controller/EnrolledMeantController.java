@@ -32,6 +32,12 @@ public class EnrolledMeantController {
         return service.findByEmployeeId(employeeId);
     }
 
+    @GetMapping("/training/{trainingId}")
+    public List<EnrollmentsForTraining> getTrainingEnrollments(@PathVariable Long trainingId) {
+        return service.getAllByTrainingId(trainingId);
+    }
+
+
 
 
 

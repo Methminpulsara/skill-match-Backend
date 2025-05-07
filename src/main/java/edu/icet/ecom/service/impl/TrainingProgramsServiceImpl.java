@@ -1,17 +1,16 @@
 package edu.icet.ecom.service.impl;
 
 import edu.icet.ecom.dto.TrainingProgram;
-import edu.icet.ecom.entity.EmployeeEntity;
 import edu.icet.ecom.entity.TrainingProgramEntity;
 import edu.icet.ecom.repository.EmployeeDto;
 import edu.icet.ecom.repository.TrainingProgramsDto;
 import edu.icet.ecom.service.TrainingProgramsService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 @Service
@@ -36,8 +35,22 @@ public class TrainingProgramsServiceImpl implements TrainingProgramsService {
     }
 
     @Override
-    public void update(TrainingProgram trainingProgram) {
-        dto.save(mapper.map(trainingProgram, TrainingProgramEntity.class));
+    public TrainingProgram update(Long id, TrainingProgram trainingProgram) {
+
+        TrainingProgramEntity entity = dto.findById(id)
+                .orElseThrow(()->new RuntimeException("TrainingProgram not found"));
+        entity.setName(trainingProgram.getName());
+        entity.setBadges(trainingProgram.getBadges());
+        entity.setDescription(trainingProgram.getDescription());
+        entity.setStartDate(trainingProgram.getStartDate());
+        entity.setEndDate(trainingProgram.getEndDate());
+        dto.save(entity);
+
+        TrainingProgramEntity updated  = dto.findById(id)
+                .orElseThrow(()->new RuntimeException("TrainingProgram not found"));
+
+        return mapper.map(updated, TrainingProgram.class);
+
     }
 
     @Override
@@ -66,9 +79,18 @@ public class TrainingProgramsServiceImpl implements TrainingProgramsService {
         return programList;
     }
 
+    @Override
+    public ResponseEntity<String> updateStatus(Long id) {
 
+        TrainingProgramEntity entity = dto.findById(id).
+                orElseThrow(()->new RuntimeException("program not found"));
 
+        entity.setStatus("Inactive");
 
+        dto.save(entity);
+
+        return ResponseEntity.ok("training was deleted");
+    }
 
 
 }

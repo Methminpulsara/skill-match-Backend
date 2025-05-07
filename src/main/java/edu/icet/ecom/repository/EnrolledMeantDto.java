@@ -12,4 +12,5 @@ public interface EnrolledMeantDto extends JpaRepository<EnrollmentsForTrainingEn
 
     List<EnrollmentsForTrainingEntity> findByEmployeeId(Long employeeId);
 
+    List<EnrollmentsForTrainingEntity> findByTrainingId(Long trainingId);
 }
