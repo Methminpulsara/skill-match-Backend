@@ -42,16 +42,6 @@ public class EnrolledMeantServiceImpl implements EnrolledMeantService {
         return enrollments;
     }
 
-    @Override
-    public List<EnrollmentsForTraining> getAllByTrainingId(Long trainingId) {
-        List<EnrollmentsForTraining> enrollments = new ArrayList<>();
-        List<EnrollmentsForTrainingEntity> enrollmentsForTrainingEntities = enrolledMeantDto.findByTrainingId(trainingId);
-        enrollmentsForTrainingEntities.forEach(entity -> {
-            enrollments.add(mapper.map(entity, EnrollmentsForTraining.class));
-        });
-
-        return enrollments;
-    }
 
     @Override
     public long getEmployeeCountForTraining(Long trainingId) {

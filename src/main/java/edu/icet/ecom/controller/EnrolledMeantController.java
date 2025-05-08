@@ -25,18 +25,10 @@ public class EnrolledMeantController {
         return ResponseEntity.ok(service.enroll(enrollment));
     }
 
-
-
     @GetMapping("/employee/{employeeId}")
     public List<EnrollmentsForTraining> getEnrollmentsByEmployeeId(@PathVariable Long employeeId) {
         return service.findByEmployeeId(employeeId);
     }
-
-    @GetMapping("/training/{trainingId}")
-    public List<EnrollmentsForTraining> getTrainingEnrollments(@PathVariable Long trainingId) {
-        return service.getAllByTrainingId(trainingId);
-    }
-
 
     @GetMapping("/count/{trainingId}")
     public ResponseEntity<Long> getEnrollmentCount(@PathVariable Long trainingId) {

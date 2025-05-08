@@ -14,7 +14,6 @@ public interface EnrolledMeantDto extends JpaRepository<EnrollmentsForTrainingEn
 
     List<EnrollmentsForTrainingEntity> findByEmployeeId(Long employeeId);
 
-    List<EnrollmentsForTrainingEntity> findByTrainingId(Long trainingId);
 
     @Query("SELECT COUNT(e) FROM EnrollmentsForTrainingEntity e WHERE e.trainingId = :trainingId")
     long countByTrainingId(@Param("trainingId") Long trainingId);
