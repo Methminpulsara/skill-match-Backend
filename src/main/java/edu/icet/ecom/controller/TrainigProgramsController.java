@@ -13,7 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TrainigProgramsController {
 
-     final TrainingProgramsService service;
+    private final TrainingProgramsService service;
 
     @PostMapping("/create")
     public TrainingProgram add (@RequestBody TrainingProgram program){

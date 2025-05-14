@@ -15,8 +15,7 @@ import java.util.List;
 
 public class SkillController {
 
-    final SkillService service;
-
+    private final SkillService service;
 
     @PostMapping("/create")
     public Skill add (@RequestBody Skill skill){

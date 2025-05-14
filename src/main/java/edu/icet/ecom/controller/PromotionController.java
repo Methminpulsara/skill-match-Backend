@@ -15,7 +15,7 @@ import java.util.List;
 
 public class PromotionController {
 
-    final PromotionService service;
+    private final PromotionService service;
 
     @PostMapping("/add")
     public ResponseEntity<String> add (@RequestBody Promotion promotion){

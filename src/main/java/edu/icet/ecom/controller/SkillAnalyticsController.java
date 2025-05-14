@@ -15,7 +15,7 @@ import java.util.List;
 
 public class SkillAnalyticsController {
 
-    final SkillAnalyticsService service;
+    private final SkillAnalyticsService service;
 
     @PostMapping("/add")
     public ResponseEntity<String> add (@RequestBody SkillAnalytics analytics){
