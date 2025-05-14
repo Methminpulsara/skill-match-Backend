@@ -45,9 +45,7 @@ public class SkillServiceImpl implements SkillService {
 
         List<Skill> skillList = new ArrayList<>();
         List<SkillEntity> all = dto.findAll();
-        all.forEach(skillEntity -> {
-            skillList.add(mapper.map(skillEntity,Skill.class));
-        });
+        all.forEach(skillEntity -> skillList.add(mapper.map(skillEntity, Skill.class)));
         return skillList;
     }
 
@@ -56,9 +54,7 @@ public class SkillServiceImpl implements SkillService {
 
         List<Skill> skillList = new ArrayList<>();
         List<SkillEntity> allByName = dto.findAllByName(name);
-        allByName.forEach(skillEntity -> {
-            skillList.add(mapper.map(skillEntity,Skill.class));
-        });
+        allByName.forEach(skillEntity -> skillList.add(mapper.map(skillEntity, Skill.class)));
         return skillList;
     }
 
@@ -67,9 +63,7 @@ public class SkillServiceImpl implements SkillService {
 
         List<Skill> skillList = new ArrayList<>();
         List<SkillEntity> allByEmployeeEmployeeId = dto.findAllByEmployeeEmployeeIdAndStatus(employeeId, status);
-        allByEmployeeEmployeeId.forEach(employee->{
-            skillList.add(mapper.map(employee,Skill.class));
-        });
+        allByEmployeeEmployeeId.forEach(skillEntity -> skillList.add(mapper.map(skillEntity, Skill.class)));
         return skillList;
     }
 

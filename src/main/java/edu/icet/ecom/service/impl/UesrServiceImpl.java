@@ -6,7 +6,6 @@ import edu.icet.ecom.repository.UserDto;
 import edu.icet.ecom.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -22,7 +21,7 @@ public class UesrServiceImpl implements UserService {
     public User add(User user) {
 
         Optional<UserEntity> existingUser = dto.findByEmail(user.getEmail());
-        if (existingUser.isPresent()){
+        if (existingUser.isPresent()) {
             throw new RuntimeException("User already exists");
         }
         UserEntity userEntity = mapper.map(user, UserEntity.class);

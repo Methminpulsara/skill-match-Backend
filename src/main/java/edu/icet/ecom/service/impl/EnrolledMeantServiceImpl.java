@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class EnrolledMeantServiceImpl implements EnrolledMeantService {
 
     private final EnrolledMeantDto enrolledMeantDto;
     private final ModelMapper mapper;
-
 
     @Override
     public EnrollmentsForTraining enroll(EnrollmentsForTraining enrollments) {
@@ -31,22 +31,17 @@ public class EnrolledMeantServiceImpl implements EnrolledMeantService {
         return enrolledMeantDto.findByEmployeeIdAndTrainingId(employeeId, trainingId).isPresent();
     }
 
-
     public List<EnrollmentsForTraining> findByEmployeeId(Long employeeId) {
 
         List<EnrollmentsForTraining> enrollments = new ArrayList<>();
         List<EnrollmentsForTrainingEntity> byEmployeeId = enrolledMeantDto.findByEmployeeId(employeeId);
-        byEmployeeId.forEach(entity->{
-            enrollments.add(mapper.map(entity,EnrollmentsForTraining.class));
-        });
+        byEmployeeId.forEach(entity->
+                enrollments.add(mapper.map(entity,EnrollmentsForTraining.class)));
         return enrollments;
     }
-
 
     @Override
     public long getEmployeeCountForTraining(Long trainingId) {
         return enrolledMeantDto.countByTrainingId(trainingId);
     }
-
-
 }

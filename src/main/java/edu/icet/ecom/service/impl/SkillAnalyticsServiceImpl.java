@@ -45,7 +45,7 @@ public class SkillAnalyticsServiceImpl implements SkillAnalyticsService {
         List<SkillAnalytics> list = new ArrayList<>();
         List<SkillAnalyticsEntity> all = dto.findAll();
         all.forEach(skillAnalyticsEntity -> {
-            list.add(mapper.map(skillAnalyticsEntity,SkillAnalytics.class));
+            list.add(mapper.map(skillAnalyticsEntity, SkillAnalytics.class));
         });
         return list;
     }

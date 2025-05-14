@@ -15,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 
 public class PromotionServiceImpl implements PromotionService {
+
     private final PromotionDto dto;
     private final ModelMapper mapper;
 
@@ -52,7 +53,5 @@ public class PromotionServiceImpl implements PromotionService {
         });
         return promotionList;
     }
-
-
 
 }

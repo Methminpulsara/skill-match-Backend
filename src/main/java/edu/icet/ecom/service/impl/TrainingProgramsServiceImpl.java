@@ -2,7 +2,6 @@ package edu.icet.ecom.service.impl;
 
 import edu.icet.ecom.dto.TrainingProgram;
 import edu.icet.ecom.entity.TrainingProgramEntity;
-import edu.icet.ecom.repository.EmployeeDto;
 import edu.icet.ecom.repository.TrainingProgramsDto;
 import edu.icet.ecom.service.TrainingProgramsService;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +18,6 @@ import java.util.List;
 public class TrainingProgramsServiceImpl implements TrainingProgramsService {
 
     private final TrainingProgramsDto dto;
-    private final EmployeeDto  employeeDto;
     private final ModelMapper mapper;
 
     @Override
@@ -63,9 +61,8 @@ public class TrainingProgramsServiceImpl implements TrainingProgramsService {
 
         List<TrainingProgram> programList = new ArrayList<>();
         List<TrainingProgramEntity> allByName = dto.findAllByName(name);
-        allByName.forEach(trainingProgramEntity -> {
-            programList.add(mapper.map(trainingProgramEntity, TrainingProgram.class));
-        });
+        allByName.forEach(trainingProgramEntity ->
+            programList.add(mapper.map(trainingProgramEntity, TrainingProgram.class)));
         return programList;
     }
 
@@ -73,9 +70,8 @@ public class TrainingProgramsServiceImpl implements TrainingProgramsService {
     public List<TrainingProgram> getAll(Long companyId, String status) {
         List<TrainingProgram> programList = new ArrayList<>();
         List<TrainingProgramEntity> all = dto.findAllByCompanyCompanyIdAndStatus(companyId , status);
-        all.forEach(trainingProgramEntity -> {
-            programList.add(mapper.map(trainingProgramEntity, TrainingProgram.class));
-        });
+        all.forEach(trainingProgramEntity ->
+            programList.add(mapper.map(trainingProgramEntity, TrainingProgram.class)));
         return programList;
     }
 
