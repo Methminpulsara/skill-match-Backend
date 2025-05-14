@@ -7,7 +7,6 @@ import edu.icet.ecom.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -18,8 +17,6 @@ public class UesrServiceImpl implements UserService {
 
     private final UserDto dto;
     private final ModelMapper mapper;
-    private final PasswordEncoder passwordEncoder;
-
 
     @Override
     public User add(User user) {
@@ -29,7 +26,6 @@ public class UesrServiceImpl implements UserService {
             throw new RuntimeException("User already exists");
         }
         UserEntity userEntity = mapper.map(user, UserEntity.class);
-        userEntity.setPassword(passwordEncoder.encode(userEntity.getPassword()));
         userEntity = dto.save(userEntity);
         return mapper.map(userEntity, User.class);
     }

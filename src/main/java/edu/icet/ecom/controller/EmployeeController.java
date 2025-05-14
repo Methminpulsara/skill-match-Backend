@@ -14,7 +14,8 @@ import java.util.List;
 @RequiredArgsConstructor
 
 public class EmployeeController {
-    final EmployeeService service;
+
+    private final EmployeeService service;
 
     @PostMapping("/create")
     public ResponseEntity<Employee> add (@RequestBody Employee employee){

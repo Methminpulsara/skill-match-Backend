@@ -15,8 +15,8 @@ import java.util.List;
 @RequiredArgsConstructor
 
 public class PromotionServiceImpl implements PromotionService {
-    final PromotionDto dto;
-    final ModelMapper mapper;
+    private final PromotionDto dto;
+    private final ModelMapper mapper;
 
     @Override
     public void add(Promotion promotion) {

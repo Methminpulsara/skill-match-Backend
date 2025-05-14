@@ -15,7 +15,7 @@ import java.util.*;
 
 public class CompanyController {
 
-        final CompanyService service;
+        private final CompanyService service;
 
         @PostMapping("/create")
         public ResponseEntity<Company> add (@RequestBody Company company){

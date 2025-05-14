@@ -15,8 +15,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class SkillServiceImpl implements SkillService {
 
-    final SkillDto dto;
-    final ModelMapper mapper;
+    private final SkillDto dto;
+    private final ModelMapper mapper;
 
     @Override
     public Skill add(Skill skill) {

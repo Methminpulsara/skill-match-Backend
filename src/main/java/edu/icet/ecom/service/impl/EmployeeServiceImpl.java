@@ -20,10 +20,10 @@ import java.util.List;
 
 public class EmployeeServiceImpl implements EmployeeService {
 
-    final EmployeeDto dto;
-    final ModelMapper mapper;
-    final UserDto userDto;
-    final CompanyDto companyDto;
+    private  final EmployeeDto dto;
+    private final ModelMapper mapper;
+    private final UserDto userDto;
+    private final CompanyDto companyDto;
 
 
     @Override

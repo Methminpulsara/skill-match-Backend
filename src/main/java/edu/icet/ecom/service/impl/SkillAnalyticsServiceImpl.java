@@ -17,8 +17,8 @@ import java.util.List;
 
 public class SkillAnalyticsServiceImpl implements SkillAnalyticsService {
 
-    final SkillAnalyticsDto dto;
-    final ModelMapper mapper;
+    private final SkillAnalyticsDto dto;
+    private final ModelMapper mapper;
 
     @Override
     public void add(SkillAnalytics analytics) {

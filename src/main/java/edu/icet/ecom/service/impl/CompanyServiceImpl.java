@@ -1,7 +1,6 @@
 package edu.icet.ecom.service.impl;
 
 import edu.icet.ecom.dto.Company;
-import edu.icet.ecom.dto.Employee;
 import edu.icet.ecom.entity.CompanyEntity;
 import edu.icet.ecom.repository.CompanyDto;
 import edu.icet.ecom.service.CompanyService;
@@ -16,8 +15,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CompanyServiceImpl implements CompanyService {
 
-    final CompanyDto dto;
-    final ModelMapper mapper;
+    private final CompanyDto dto;
+    private final ModelMapper mapper;
     @Override
     public Company add(Company company) {
         CompanyEntity companyEntity = mapper.map(company, CompanyEntity.class);

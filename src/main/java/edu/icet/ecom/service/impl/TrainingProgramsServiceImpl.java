@@ -18,9 +18,9 @@ import java.util.List;
 
 public class TrainingProgramsServiceImpl implements TrainingProgramsService {
 
-    final TrainingProgramsDto dto;
-    final EmployeeDto  employeeDto;
-    final ModelMapper mapper;
+    private final TrainingProgramsDto dto;
+    private final EmployeeDto  employeeDto;
+    private final ModelMapper mapper;
 
     @Override
     public TrainingProgram add(TrainingProgram trainingProgram) {
