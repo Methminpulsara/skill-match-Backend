@@ -24,8 +24,6 @@ public class CompanyServiceImpl implements CompanyService {
         return mapper.map(companyEntity, Company.class);
     }
 
-
-
     @Override
     public void delete(Long companyId) {
         dto.deleteById(companyId);
