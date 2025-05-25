@@ -61,11 +61,8 @@ public class EmployeeController {
         return service.findByUserID(userID);
     }
 
-
     @PutMapping("/{employeeId}/profile-image")
-    public Employee updateProfileImage(
-            @PathVariable Long employeeId,
-            @RequestBody  String profileImage) {
+    public Employee updateProfileImage(@PathVariable Long employeeId, @RequestBody  String profileImage) {
 
     return service.updateProfileImage(employeeId,profileImage);
     }
