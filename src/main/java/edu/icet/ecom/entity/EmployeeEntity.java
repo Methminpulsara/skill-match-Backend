@@ -1,5 +1,6 @@
 package edu.icet.ecom.entity;
 
+import java.util.List;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,5 +32,9 @@ public class EmployeeEntity {
     @ManyToOne
     @JoinColumn(name = "companyId" , referencedColumnName = "companyId")
     private CompanyEntity company;
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<SkillEntity> skills;
+
 
 }
