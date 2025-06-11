@@ -5,6 +5,5 @@ import java.util.List;
 
 
 public interface CareerSuggestionService {
-
   List<CareerSuggestion> careerSuggestions(Long employeeId);
 }
