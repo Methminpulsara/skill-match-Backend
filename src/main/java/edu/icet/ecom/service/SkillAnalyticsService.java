@@ -1,5 +1,3 @@
 package edu.icet.ecom.service;
 
-public interface SkillAnalyticsService {
-
-}
+public interface SkillAnalyticsService {}
